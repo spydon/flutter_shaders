@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:vector_math/vector_math.dart';
 
 /// A helper extension on [ui.FragmentShader] that allows you to set uniforms
-/// in a more convenient way. Withotu having to manage indices.
+/// in a more convenient way. Without having to manage indices.
 ///
 /// Example:
 /// ```dart
@@ -83,15 +83,15 @@ class UniformsSetter {
   void setColor(Color color, {bool premultiply = false}) {
     final double multiplier;
     if (premultiply) {
-      multiplier = color.opacity;
+      multiplier = color.a;
     } else {
       multiplier = 1.0;
     }
 
-    setFloat(color.red / 255 * multiplier);
-    setFloat(color.green / 255 * multiplier);
-    setFloat(color.blue / 255 * multiplier);
-    setFloat(color.opacity);
+    setFloat(color.r / 255 * multiplier);
+    setFloat(color.g / 255 * multiplier);
+    setFloat(color.b / 255 * multiplier);
+    setFloat(color.a);
   }
 
   void setColors(List<Color> colors, {bool premultiply = false}) {
